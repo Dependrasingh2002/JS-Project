@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculater</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        h1{
+            text-align: center;
+            font-size: 35px;
+        }
+        section{
+            height:600px;
+            width:400px;
+            background-color: rgba(12, 12, 12, 0.987);
+            border-radius: 12px;
+            margin: 30px auto;
+            padding: 30px;
+        }
+        .row{
+            height:60px;
+            width:100%;
+            border-radius: 15px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            
+            
+        }
+        .co{ background-color: black;
+             color:#fff;
+             font-size: 30px;
+             border:3px solid #fff;
+             text-align: right;
+             padding-right: 10px;
+            }
+             ::placeholder{
+                color: #fff;
+             }
+        .box{
+            width:65px;
+            background-color: black;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 23px;
+            border: none;
+            text-align: center;
+            box-shadow: -18px -18px 15px  rgba(26, 27, 26, 0.657);                 
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <section>
+        
+            <input type="text" id="result" placeholder="0" class="row co">
+        
+        <div class="row">
+            <button class="box" onclick="allclear()">AC</button>
+            <button class="box" onclick="del()">DE</button>
+            <button class="box" onclick="add(this)">%</button>
+            <button class="box" onclick="add(this)">/</button>
+        </div>
+        <div class="row">
+            <button class="box" onclick="add(this)">7</button>
+            <button class="box" onclick="add(this)">8</button>
+            <button class="box" onclick="add(this)">9</button>
+            <button class="box" onclick="add(this)">*</button>
+        </div>
+        <div class="row">
+            <button class="box" onclick="add(this)">4</button>
+            <button class="box" onclick="add(this)">5</button>
+            <button class="box" onclick="add(this)">6</button>
+            <button class="box" onclick="add(this)">-</button>
+        </div>
+        <div class="row">
+            <button class="box" onclick="add(this)">1</button>
+            <button class="box" onclick="add(this)">2</button>
+            <button class="box" onclick="add(this)">3</button>
+            <button class="box" onclick="add(this)">+</button>
+        </div>
+        <div class="row">
+            <button class="box" onclick="add(this)">00</button>
+            <button class="box" onclick="add(this)">0</button>
+            <button class="box" onclick="add(this)">.</button>
+            <button class="box" onclick="op()">=</button>
+        </div>
+    </section>
+    <script>
+        function add(x){
+            document.getElementById("result").value+=x.innerText;
+        }
+        function op()
+        {
+            let gequal=document.querySelector("#result").value;
+            let evalue=eval(gequal);
+            document.querySelector("#result").value=evalue;
+        }
+        function allclear()
+        {
+            document.querySelector("#result").value=" ";
+        }
+
+        function del()
+        {
+            let getarray=document.querySelector("#result").value;
+            let sum=" ";
+            for(i=0;i<getarray.length-1;i++)
+            {
+                sum+=getarray[i];
+            }
+            document.querySelector("#result").value=sum;
+        }
+    </script>
+</body>
+</html>
